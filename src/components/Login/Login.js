@@ -2,8 +2,10 @@ import React from 'react';
 import form from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import useAuth from '../../hooks/useAuth';
 
 function Login() {
+  const {user,signInUsingGoogle}=useAuth();
   return (
     <div className='login-form'>
        <div>
@@ -19,7 +21,9 @@ function Login() {
             <p>New to ema-john?<Link to='/register'>Create Account</Link></p>
 
             <h3>--------or---------</h3>
-            <button className='btn-regular'>Google Sign In</button>
+            <button className='btn-regular'
+              onClick={signInUsingGoogle}
+              >Google Sign In</button>
        </div>
     </div>
   )
